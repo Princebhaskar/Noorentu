@@ -20,6 +20,7 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
+
 app.use(clerkMiddleware());
 
 app.get('/', (req, res)=> res.send('Server is running'))
@@ -32,9 +33,9 @@ app.use('/api/message', messageRouter)
 const startServer = async () => {
   try {
     await connectDB();
-    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
   } catch (error) {
-    console.error("❌ Failed to start server:", error);
+    console.error("Failed to start server:", error);
   }
 };
 
