@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://your-production-domain.com'],
+  origin: ['http://localhost:5173', 'https://noorentu-client.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
