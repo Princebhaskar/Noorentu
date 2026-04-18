@@ -1,0 +1,12 @@
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 35L22 10L18 28H28L16 53L20 35H10Z" fill="#5D5CFF" />
+  
+  <text 
+    x="35" 
+    y="42" 
+    font-family="Arial, Helvetica, sans-serif" 
+    font-weight="800" 
+    font-size="32" 
+    fill="#5D5CFF" 
+    style="letter-spacing: -1px;">Noorentu</text>
+</svg>
