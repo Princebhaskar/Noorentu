@@ -11,11 +11,15 @@ import storyRouter from './routes/storyRoutes.js';
 import messageRouter from './routes/messageRoutes.js';
 
 const app = express();
-
-await connectDB();
+const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://noorentu-server.vercel.app'], // Add your actual frontend URL later
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
+}));
 app.use(clerkMiddleware());
 
 app.get('/', (req, res)=> res.send('Server is running'))
@@ -25,6 +29,13 @@ app.use('/api/post', postRouter)
 app.use('/api/story', storyRouter)
 app.use('/api/message', messageRouter)
 
-const PORT = process.env.PORT || 4000;
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+  } catch (error) {
+    console.error("❌ Failed to start server:", error);
+  }
+};
 
-app.listen(PORT, ()=> console.log(`Server is running on port ${PORT}`))
+startServer();
