@@ -15,8 +15,9 @@ const PORT = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({
-  origin: ["http://localhost:5173"],
-  credentials: true
+  origin: ['http://localhost:5173', 'https://your-production-domain.com'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
 }));
 
 app.use(clerkMiddleware());
